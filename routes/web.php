@@ -80,8 +80,13 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/register', [PageController::class, 'storeUser'])->name('register.post');
 });
 
-// Logout Route
+// Logout Routes
 Route::post('/logout', function () {
     Auth::logout();
-    return redirect('/login');
+    return redirect('/');
 })->name('logout');
+
+// Redirect GET logout to POST logout
+Route::get('/logout', function () {
+    return redirect()->route('logout');
+});
