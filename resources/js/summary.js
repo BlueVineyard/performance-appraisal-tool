@@ -81,9 +81,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Only add event listeners if the elements exist
     if (appraisalSummarySubmit) {
         appraisalSummarySubmit.addEventListener("click", () => {
-            document
-                .getElementById("confirmation_modal")
-                .classList.remove("hidden");
+            const confirmationModal =
+                document.getElementById("confirmation_modal");
+            if (confirmationModal) {
+                confirmationModal.classList.remove("hidden");
+            } else {
+                console.log(
+                    "Confirmation modal not found. Form would be submitted here."
+                );
+                // Here you would typically submit the form or perform the final action
+            }
         });
     }
 

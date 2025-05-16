@@ -13,35 +13,55 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-white">
-    <header class="flex items-center justify-between px-6 py-3 bg-white border-b border-b-border-2">
+<body class="min-h-screen bg-[#F3F5F7]">
+    <header
+        class="flex items-center justify-between px-4 sm:px-6 py-3 bg-white border-b border-b-border-2 relative z-10">
         <div class="logo">
             <a href="/">
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/images/logo.svg"
-                    alt="Adventist Schools NNSW" />
+                    alt="Adventist Schools NNSW" class="max-h-8 sm:max-h-none" />
             </a>
         </div>
 
-        <div class="nav_actions flex items-center gap-4">
-            <div class="notifications-icon border rounded-full p-2 border-border-1 cursor-pointer">
+        <div class="nav_actions flex items-center gap-2 sm:gap-4">
+            <div class="notifications-icon border rounded-full p-1.5 sm:p-2 border-border-1 cursor-pointer">
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/icons/bell.svg"
-                    alt="Notifications" />
+                    alt="Notifications" class="w-4 h-4 sm:w-auto sm:h-auto" />
             </div>
-            <div class="user relative cursor-pointer">
+
+            <!-- USER DROPDOWN WITH CLICK TOGGLE -->
+            <div class="user relative cursor-pointer" id="userMenuToggle">
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/images/user.png"
-                    alt="Username" class="rounded-full" />
+                    alt="Username" class="w-8 h-8 sm:w-auto sm:h-auto rounded-full" />
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/icons/arrow-down.svg"
                     alt="More"
-                    class="user-dropdown bg-[#0D5CAB] w-4 h-4 block border border-white rounded-full absolute right-[-4px] bottom-0" />
+                    class="user-dropdown bg-[#0D5CAB] w-3 h-3 sm:w-4 sm:h-4 block border border-white rounded-full absolute right-[-2px] sm:right-[-4px] bottom-0" />
+
+                <!-- Dropdown -->
+                <div id="userDropdown"
+                    class="absolute right-0 mt-2 w-40 bg-white shadow-md rounded-lg py-2 hidden z-20">
+                    <a href="/supervisor-dashboard"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Supervisor
+                        Dashboard</a>
+                    <a href="/supervisor-questionnaire"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Questionnaire</a>
+                    <a href="/logout"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Logout</a>
+                </div>
             </div>
         </div>
     </header>
+
 
     <main>
         {{ $slot }}
     </main>
 
 
+
+    <x-appraisal.confirmation_modal>
+
+    </x-appraisal.confirmation_modal>
 </body>
 
 </html>

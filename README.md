@@ -13,6 +13,8 @@ A web application designed to facilitate the evaluation of staff members in educ
 -   Optional comments for each rating
 -   Summary view of all ratings and comments
 -   Responsive design for various devices
+-   User authentication system (login, registration, password reset)
+-   Supervisor Dashboard for managing appraisals, staff, and reports
 
 ## Technology Stack
 
@@ -58,7 +60,95 @@ The application uses several JavaScript modules to handle different aspects of f
 -   `summary.js` - Manages the summary view rendering and submission
 -   `edit.js` - Handles editing of submitted responses
 
+## Supervisor Dashboard
+
+The application includes a Supervisor Dashboard that serves as a central hub for managing the performance appraisal process:
+
+### Dashboard Features
+
+-   **Overview Cards**: Quick access to key areas of the application
+
+    -   Appraisals card with direct link to the Supervisor Questionnaire
+    -   Staff management card for viewing and managing staff members
+    -   Reports card for generating and viewing performance reports
+
+-   **Recent Activity**: Timeline of recent actions in the system
+
+    -   Completed appraisals
+    -   Staff additions
+    -   Report generation
+
+-   **Navigation**: Easy access to all parts of the application
+    -   User dropdown menu with links to the Dashboard and Questionnaire
+    -   Intuitive card-based navigation to different sections
+
+### Implementation
+
+-   Built with Tailwind CSS for responsive design
+-   Clean, modern UI with cards and activity timeline
+-   Integrated with the existing authentication system
+-   Connected to the Supervisor Questionnaire for seamless workflow
+
+## Authentication System
+
+The application includes a complete authentication system with the following features:
+
+### User Management
+
+-   User registration with name, email, and password
+-   User login with email and password
+-   User logout functionality
+-   "Remember me" functionality for persistent login
+-   Password reset via email
+-   Protected routes with middleware
+
+### Data Storage
+
+User details are stored in the following database tables:
+
+-   `users` - Stores user information:
+
+    -   id (primary key)
+    -   name
+    -   email (unique)
+    -   email_verified_at (nullable timestamp)
+    -   password (hashed)
+    -   remember_token
+    -   created_at, updated_at timestamps
+
+-   `password_reset_tokens` - Manages password reset requests:
+
+    -   email (primary key)
+    -   token
+    -   created_at timestamp
+
+-   `sessions` - Handles user sessions:
+    -   id (primary key)
+    -   user_id (foreign key to users table)
+    -   ip_address
+    -   user_agent
+    -   payload
+    -   last_activity
+
+### Implementation
+
+-   Uses Laravel's built-in authentication features
+-   Custom views with Tailwind CSS styling
+-   Form validation for all inputs
+-   Secure password hashing
+-   CSRF protection for all forms
+-   Route middleware for authentication ('auth' and 'guest')
+-   Smart redirects based on authentication status
+
 ## Recent Improvements
+
+### Authentication Enhancements
+
+-   Implemented logout functionality using Laravel Livewire Actions
+-   Added middleware protection to routes based on authentication status
+-   Fixed authentication flow to ensure proper redirects after login, registration, and logout
+-   Added a smart root route that redirects based on authentication status
+-   Prevented redirect loops in the authentication flow
 
 ### JavaScript Enhancements
 
@@ -149,10 +239,6 @@ The application uses several JavaScript modules to handle different aspects of f
 -   Use the existing components in the `resources/views/components/appraisal` directory
 -   Follow the established naming conventions and prop patterns
 -   Preserve class names and data attributes that are used by JavaScript
-
-## License
-
-[License information]
 
 ## Contributors
 
