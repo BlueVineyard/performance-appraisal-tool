@@ -156,4 +156,4 @@ The application uses several JavaScript modules to handle different aspects of f
 
 ## Contributors
 
-[List of contributors]
+[Rohan T George](https://github.com/19Rohan97/)
