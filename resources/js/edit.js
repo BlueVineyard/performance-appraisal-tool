@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         appraisalSummary.classList.add("hidden");
-        appraisalForm.classList.remove("hidden");
+        appraisalForm.classList.remove("hidden", "lg:hidden");
 
         const savedData =
             JSON.parse(localStorage.getItem("patFormResponses")) || [];

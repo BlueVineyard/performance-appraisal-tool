@@ -150,10 +150,6 @@ The application uses several JavaScript modules to handle different aspects of f
 -   Follow the established naming conventions and prop patterns
 -   Preserve class names and data attributes that are used by JavaScript
 
-## License
-
-[License information]
-
 ## Contributors
 
 [Rohan T George](https://github.com/19Rohan97/)

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.showStep = function () {
         steps.forEach((step, index) => {
             step.classList.toggle("hidden", index !== window.currentStep);
-            if (index === window.window.currentStep) {
+            if (index === window.currentStep) {
                 step.classList.add("fade-in");
                 setTimeout(() => step.classList.remove("fade-in"), 500);
             }
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        if (!validateStep(currentStep)) return scrollToTop();
+        if (!validateStep(window.currentStep)) return scrollToTop();
 
         const results = [];
 
@@ -141,8 +141,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         localStorage.setItem("patFormResponses", JSON.stringify(results));
-        document.getElementById("appraisal_summary").classList.remove("hidden");
-        document.getElementById("appraisal_form").classList.add("hidden");
+
+        const appraisalSummary = document.getElementById("appraisal_summary");
+        const appraisalForm = document.getElementById("appraisal_form");
+
+        if (appraisalSummary) {
+            appraisalSummary.classList.remove("hidden");
+        }
+
+        if (appraisalForm) {
+            appraisalForm.classList.add("hidden", "lg:hidden");
+        }
 
         // Check if renderSummary function exists before calling it
         if (typeof window.renderSummary === "function") {

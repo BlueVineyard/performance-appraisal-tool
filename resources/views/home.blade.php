@@ -2,18 +2,20 @@
     <x-slot name="title">Home</x-slot>
 
     <!-- Appraisal Form -->
-    <main id="appraisal_form" class="w-full h-full min-h-[calc(100vh-61.67px)] relative">
-        <x-appraisal.aside step="first" title="Commitment to Professional Practice"
-            description="This section evaluates the staff member's commitment to professional excellence, adherence to ethical standards, and dedication to continuous improvement in their role."
-            :isVisible="true" bgPosition="37%_top" />
-        <x-appraisal.aside step="second" title="Commitment to Professional Behaviour"
-            description="This section evaluates the staff member's conduct, ethics, and interpersonal interactions in alignment with the school's values and professional expectations"
-            :isVisible="false" bgPosition="50%_top" />
-        <x-appraisal.aside step="third" title="Commitment to Mission"
-            description="At Adventist schools, staff members play a crucial role in nurturing a Christ-centered learning environment. This section evaluates how effectively staff integrate biblical principles into their professional responsibilities, inspire spiritual growth in students, and contribute to the mission of the school"
-            :isVisible="false" bgPosition="37%_top" />
+    <main id="appraisal_form" class="w-full h-full min-h-[calc(100vh-61.67px)] relative lg:flex">
+        <div class="lg:w-[439px] lg:h-full lg:fixed lg:top-0">
+            <x-appraisal.aside step="first" title="Commitment to Professional Practice"
+                description="This section evaluates the staff member's commitment to professional excellence, adherence to ethical standards, and dedication to continuous improvement in their role."
+                :isVisible="true" bgPosition="37%_top" />
+            <x-appraisal.aside step="second" title="Commitment to Professional Behaviour"
+                description="This section evaluates the staff member's conduct, ethics, and interpersonal interactions in alignment with the school's values and professional expectations"
+                :isVisible="false" bgPosition="50%_top" />
+            <x-appraisal.aside step="third" title="Commitment to Mission"
+                description="At Adventist schools, staff members play a crucial role in nurturing a Christ-centered learning environment. This section evaluates how effectively staff integrate biblical principles into their professional responsibilities, inspire spiritual growth in students, and contribute to the mission of the school"
+                :isVisible="false" bgPosition="37%_top" />
+        </div>
         <section
-            class="flex-1 py-10 px-[100px] bg-light w-full max-w-[calc(100%-439px)] ms-auto h-full min-h-[calc(100vh-61.67px)]">
+            class="flex-1 py-8 px-4 sm:py-10 sm:px-8 md:px-12 lg:px-16 xl:px-[100px] bg-light w-full lg:ml-[439px] h-full min-h-[calc(100vh-61.67px)]">
             <form class="pat_form flex flex-col gap-[60px]">
                 <x-appraisal.steps-indicator :currentStep="2" :totalSteps="3" />
 
@@ -87,7 +89,8 @@
     </main>
 
     <!-- Appraisal Summary -->
-    <main id="appraisal_summary" class="w-full max-w-[956px] mx-auto bg-white p-12 rounded-2xl my-20">
+    <main id="appraisal_summary"
+        class="w-full max-w-[956px] mx-auto bg-white p-4 sm:p-8 md:p-12 rounded-2xl my-10 sm:my-20">
         <section>
             <h2 class="text-center">Appraisal Summary</h2>
             <p class="text-center mt-5 mb-14">
