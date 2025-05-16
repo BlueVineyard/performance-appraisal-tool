@@ -9,14 +9,14 @@ use App\Livewire\Actions\Logout;
 
 Route::get('/', function () {
     if (Auth::check()) {
-        return redirect('/supervisor-dashboard');
+        return view('supervisor-dashboard');
     }
-    return redirect('/login');
+    return view('login');
 });
 
 // Dashboard route
 Route::get('/dashboard', function () {
-    return redirect('/supervisor-dashboard');
+    return view('supervisor-dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
@@ -46,11 +46,11 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('settings')->group(function () {
         Route::get('/profile', function () {
             return view('settings.profile');
-        })->name('profile.edit');
+        })->name('settings.profile');
 
         Route::get('/password', function () {
             return view('settings.password');
-        })->name('password.edit');
+        })->name('settings.password');
     });
 });
 
@@ -81,4 +81,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 // Logout Route
-Route::post('/logout', Logout::class)->name('logout');
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
