@@ -28,15 +28,30 @@
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/icons/bell.svg"
                     alt="Notifications" class="w-4 h-4 sm:w-auto sm:h-auto" />
             </div>
-            <div class="user relative cursor-pointer">
+
+            <!-- USER DROPDOWN WITH CLICK TOGGLE -->
+            <div class="user relative cursor-pointer" id="userMenuToggle">
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/images/user.png"
                     alt="Username" class="w-8 h-8 sm:w-auto sm:h-auto rounded-full" />
                 <img src="https://bluevineyard.github.io/performance-appraisal-tool-HTML/assets/icons/arrow-down.svg"
                     alt="More"
                     class="user-dropdown bg-[#0D5CAB] w-3 h-3 sm:w-4 sm:h-4 block border border-white rounded-full absolute right-[-2px] sm:right-[-4px] bottom-0" />
+
+                <!-- Dropdown -->
+                <div id="userDropdown"
+                    class="absolute right-0 mt-2 w-40 bg-white shadow-md rounded-lg py-2 hidden z-20">
+                    <a href="/supervisor-dashboard"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Supervisor
+                        Dashboard</a>
+                    <a href="/supervisor-questionnaire"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Questionnaire</a>
+                    <a href="/logout"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">Logout</a>
+                </div>
             </div>
         </div>
     </header>
+
 
     <main>
         {{ $slot }}

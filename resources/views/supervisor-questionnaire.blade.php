@@ -1,5 +1,5 @@
 <x-layouts.simple>
-    <x-slot name="title">Home</x-slot>
+    <x-slot name="title">Supervisor Questionnaire</x-slot>
 
     <!-- Appraisal Form -->
     <main id="appraisal_form" class="w-full h-full min-h-[calc(100vh-61.67px)] relative lg:flex">
